@@ -1,4 +1,7 @@
 
+import java.util.Random;
+
+
 /**
  *
  * @author Jorge
@@ -6,22 +9,25 @@
 public class runtest {
     public static void main(String[] args){
         int size = 65536;
+        
+        Random rand = new Random();
         ArrayGen toot = new ArrayGen();
         int[] arrayone = toot.gen(size, false);
         int[] arraytwo = new int[size];
         
-        printArray(arrayone, size);
-        
-        System.out.println();
-        
+
         InsertionSort insertionsort = new InsertionSort();
         MergeSort mergesort = new MergeSort();
         QuickSort quicksort = new QuickSort();
         
-        long startTime = System.nanoTime();
+        printArray(arrayone, size);
+        System.out.println();
         
+        long startTime = System.nanoTime();
+
         //quicksort.sort1(arrayone, 0, (size-1));
         //quicksort.sort2(arrayone, 0, (size-1));
+        //quicksort.sort3(arrayone, rand, 0, (size-1));
         //mergesort.sort(arrayone, arraytwo, 0, size);
         //insertionsort.sort(arrayone, size);
         

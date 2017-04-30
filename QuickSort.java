@@ -1,3 +1,6 @@
+
+import java.util.Random;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -33,24 +36,25 @@ public class QuickSort {
         }
     }
     
+        public void sort3(int[] array, Random rand, int p, int q){
+        int temp;
+        int rtemp;
+            
+        if((q-p+1) >= 16){
+            rtemp = (p + rand.nextInt(q-p+1));
+            temp = array[p];
+            array[p] = array[rtemp];
+            array[rtemp] = temp;  
+        }    
+            
+        if(p < q){
+            int pivotposition = partition(array, p, q);
+            sort1(array, p, pivotposition - 1);
+            sort1(array, pivotposition + 1, q);
+        }
+    }
+    
     public int partition(int[] array, int first, int last){
-//        int pivot = array[last];
-//        int tb = first - 1;
-//        int temp = 0;
-//
-//        for(int k = first; k < last; k++){
-//            if(array[k] <= pivot){
-//                tb++;
-//                temp = array[tb];
-//                array[tb] = array[k];
-//                array[k] = temp;
-//            }
-//        }
-//        
-//        temp = array[(tb+1)];
-//        array[(tb+1)] = array[last];
-//        array[last] = temp;
-//        return (tb + 1);
         int pivot = array[first];
         int tb = first + 1;
         int ts = last;
